@@ -1,8 +1,12 @@
+import { FC } from "react";
 import Button from "../../atoms/Button";
 import { ModalWrapper } from "./styles";
 
-const Modal = () => {
-  const closeModal = () => {};
+interface IModal {
+  closeModal: () => void
+}
+
+const Modal: FC<IModal> = ({closeModal}) => {
   return (
     <ModalWrapper>
       <div className="modal__background"></div>
