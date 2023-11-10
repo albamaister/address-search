@@ -19,7 +19,7 @@ export const Text = styled.p`
 `;
 
 export const Icon = styled.img`
-  width: 20px; 
+  width: 18px; 
   height: 20px;
   margin: 0 10px; 
 `;

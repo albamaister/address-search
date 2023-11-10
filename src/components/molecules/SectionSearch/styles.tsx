@@ -5,7 +5,7 @@ export const SearchSectionContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 500px; 
+  max-width: 700px; 
   padding: 20px;
   background-color: #d4d4da;
 `;
