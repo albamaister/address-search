@@ -10,7 +10,11 @@ import { validZipcodes } from "../../../utils/utils";
 const SectionSearch = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const [selectSuggestion, setSelectSuggestion] = useState<IPlace>({description: '', zipCode: ''})
+  const [selectSuggestion, setSelectSuggestion] = useState<IPlace>({
+    description: "",
+    zipCode: "",
+  });
+  const [isZipValid, setIsZipValid] = useState(false);
 
   const { address, suggestions, handleInputChange } = useAddressAutocomplete();
 
@@ -18,36 +22,32 @@ const SectionSearch = () => {
     setShowModal(false);
   };
 
-  console.log(suggestions, 'suggestions')
-
   const onCLickPlace = (suggestion: IPlace) => {
-
-    console.log(suggestion.zipCode, 'ziiiip');
-    setSelectSuggestion(suggestion)
-
-    // validacionZip()
-    setShowModal(true);
+    setSelectSuggestion(suggestion);
+    validacionZip(suggestion.zipCode);
   };
 
-  const validacionZip = () => {
-
-    console.log(selectSuggestion.zipCode, 'selectSuggestion.zipCode')
-    if ( validZipcodes.includes(selectSuggestion.zipCode) ) {
-      console.log('es valido');
-    } else {
-      console.log('NO es valido');
-
+  const validacionZip = (zip: string) => {
+    if (!validZipcodes.includes(zip)) {
+      setIsZipValid(false);
+      setShowModal(true);
+      return;
     }
-  }
-
+    setIsZipValid(true);
+    setShowModal(true);
+  };
 
   return (
     <SearchSectionContainer>
       <Input value={address} handleInputChange={handleInputChange} />
       {suggestions.map((suggestion: IPlace, index) => (
-        <Place key={index} suggestion={suggestion} onClickPlace={onCLickPlace} />
+        <Place
+          key={index}
+          suggestion={suggestion}
+          onClickPlace={onCLickPlace}
+        />
       ))}
-      {showModal && <Modal closeModal={closeModal} />}
+      {showModal && <Modal isZipValid={isZipValid} closeModal={closeModal} />}
     </SearchSectionContainer>
   );
 };

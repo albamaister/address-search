@@ -71,7 +71,6 @@ const useAddressAutocomplete = () => {
             );
 
             Promise.all(promises).then((results: IPlace[]) => {
-              console.log(results, "resultados");
               setSuggestions(results);
             });
           }

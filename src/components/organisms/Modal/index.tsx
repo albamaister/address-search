@@ -3,10 +3,11 @@ import Button from "../../atoms/Button";
 import { ModalWrapper } from "./styles";
 
 interface IModal {
-  closeModal: () => void
+  closeModal: () => void;
+  isZipValid: boolean;
 }
 
-const Modal: FC<IModal> = ({closeModal}) => {
+const Modal: FC<IModal> = ({ closeModal, isZipValid }) => {
   return (
     <ModalWrapper>
       <div className="modal__background"></div>
@@ -15,23 +16,25 @@ const Modal: FC<IModal> = ({closeModal}) => {
           <button onClick={closeModal}>X</button>
         </div>
         <div className="modal__info">
-          <h1>Address updated</h1>
+          <h1>{isZipValid ? "Address updated" : "Out of Delivery Area"}</h1>
           <div className="modal__info--subtitle">
-            New address added to your account
+            {isZipValid
+              ? "New address added to your account"
+              : '"Wherever I go, there I am"'}
           </div>
 
           <div className="modal__info--secsubtitle">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-            neque laboriosam sequi possimus temporibus ullam? Eius soluta
-            voluptatibus minima ea a, earum, ab illum quo, aspernatur deserunt
-            sunt laboriosam quae.
+            {isZipValid
+              ? "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque neque laboriosam sequi possimus temporibus ullam? Eius soluta voluptatibus minima ea a, earum, ab illum quo, aspernatur deserunt sunt laboriosam quae."
+              : "Sadly, this quote is not true for us. In other words, we are not operating in your area (yet), but things change everithing."}
           </div>
           <div className="modal__info--endsubtitle">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            {isZipValid
+              ? "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+              : "Sign up to our newsletter to get notified."}
           </div>
           <div className="modal__info--button">
-
-          <Button></Button>
+            <Button onClick={closeModal}>UNDERSTOOD</Button>
           </div>
         </div>
       </div>

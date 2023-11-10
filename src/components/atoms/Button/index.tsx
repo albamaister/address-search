@@ -1,10 +1,13 @@
+import { ReactNode, FC } from "react";
+import { ButtonStyled } from "./styles";
 
-import { ButtonStyled } from './styles';
-
-const Button = () => {
-  return (
-    <ButtonStyled>UNDERSTOOD</ButtonStyled>
-  )
+interface IButton {
+  children: ReactNode;
+  onClick: () => void;
 }
 
-export default Button
+const Button: FC<IButton> = ({ children, onClick }) => {
+  return <ButtonStyled onClick={onClick}>{children}</ButtonStyled>;
+};
+
+export default Button;

@@ -8,6 +8,7 @@ export const TextBlockWrapper = styled.div`
   border: 1px solid lightgray; 
   box-shadow: 2px 2px 5px lightgray; 
   background-color: white; 
+  cursor: pointer;
 `;
 
 export const Text = styled.p`
