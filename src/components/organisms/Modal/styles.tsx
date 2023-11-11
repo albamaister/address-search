@@ -20,6 +20,7 @@ export const ModalWrapper = styled.div`
     z-index: 200;
     padding: 2rem;
     min-width: 150px;
+    box-shadow: 5px 5px 20px #a59f9f;
   }
 
   .modal__bar {
