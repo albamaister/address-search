@@ -35,10 +35,10 @@ const SectionSearch = () => {
   return (
     <SearchSectionContainer>
       <Input value={address} handleInputChange={handleInputChange} />
-      {suggestions.map((suggestion: IPlace, index) => (
+      {suggestions.map((suggestion: IPlace) => (
         <Place
           data-testid="place"
-          key={index}
+          key={suggestion.id}
           suggestion={suggestion}
           onClickPlace={onCLickPlace}
         />
