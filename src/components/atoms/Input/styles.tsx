@@ -8,7 +8,7 @@ export const InputContainer = styled.div`
   height: 65px;
   border: 1px solid lightgray;
   border-radius: 0;
-  box-shadow: 2px 2px 5px lightgray;
+  box-shadow: 2px 2px 5px #a59f9f;
   background-color: white;
 `;
 

@@ -6,7 +6,7 @@ export const TextBlockWrapper = styled.div`
   width: 100%; 
   height: 90px; 
   border: 1px solid lightgray; 
-  box-shadow: 2px 2px 5px lightgray; 
+  box-shadow: 2px 2px 5px #a59f9f; 
   background-color: white; 
   cursor: pointer;
 `;
