@@ -10,10 +10,6 @@ import { validZipcodes } from "../../../utils/utils";
 const SectionSearch = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const [selectSuggestion, setSelectSuggestion] = useState<IPlace>({
-    description: "",
-    zipCode: "",
-  });
   const [isZipValid, setIsZipValid] = useState(false);
 
   const { address, suggestions, handleInputChange } = useAddressAutocomplete();
@@ -23,7 +19,6 @@ const SectionSearch = () => {
   };
 
   const onCLickPlace = (suggestion: IPlace) => {
-    setSelectSuggestion(suggestion);
     validacionZip(suggestion.zipCode);
   };
 

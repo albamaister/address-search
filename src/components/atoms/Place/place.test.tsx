@@ -5,6 +5,7 @@ import Place from './index';
 const mockOnClickPlace = vi.fn();
 
 const mockSuggestion: IPlace = {
+  id: '1111',
   description: 'New york',
   zipCode: '122222'
 };

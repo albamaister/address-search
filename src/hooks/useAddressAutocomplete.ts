@@ -71,7 +71,7 @@ const useAddressAutocomplete = () => {
             );
 
             Promise.all(promises).then((results: IPlace[]) => {
-              setSuggestions(results);
+              setSuggestions(results.map(result => ({...result, id: crypto.randomUUID()})));
             });
           }
         }
