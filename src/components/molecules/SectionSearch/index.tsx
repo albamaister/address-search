@@ -42,6 +42,7 @@ const SectionSearch = () => {
       <Input value={address} handleInputChange={handleInputChange} />
       {suggestions.map((suggestion: IPlace, index) => (
         <Place
+          data-testid="place"
           key={index}
           suggestion={suggestion}
           onClickPlace={onCLickPlace}

@@ -1,19 +1,33 @@
-import {  TextBlockWrapper, Icon, Text } from './styles';
-import icono from '/map-pin-gray.png'
-import { FC } from 'react';
-import { IPlace } from '../../../interfaces/place';
+import {
+  TextBlockWrapper,
+  Icon,
+  PrimaryText,
+  SecondaryText,
+  AdressContainer,
+} from "./styles";
+import icono from "/map-pin-gray.png";
+import { FC } from "react";
+import { IPlace } from "../../../interfaces/place";
 
 interface onClick {
-  onClickPlace: (suggestion: IPlace) => void
-  suggestion: IPlace
+  onClickPlace: (suggestion: IPlace) => void;
+  suggestion: IPlace;
 }
-const Place: FC<onClick> = ({onClickPlace, suggestion}) => {
+const Place: FC<onClick> = ({ onClickPlace, suggestion }) => {
+
+  const mainText = suggestion.description.split(',')[0]
+  const secondaryText = suggestion.description.split(',').slice(1).join(',').trim();
+
+
   return (
     <TextBlockWrapper onClick={() => onClickPlace(suggestion)}>
       <Icon src={icono} alt="Icono" />
-      <Text>{suggestion.description}</Text>
+      <AdressContainer>
+        <PrimaryText>{mainText}</PrimaryText>
+        <SecondaryText>{secondaryText}</SecondaryText>
+      </AdressContainer>
     </TextBlockWrapper>
-  )
-}
+  );
+};
 
-export default Place
+export default Place;

@@ -14,7 +14,7 @@ export const InputContainer = styled.div`
 
 export const InputField = styled.input`
   flex: 1;
-  padding: 12px 12px 12px 40px;
+  padding: 12px 12px 12px 50px;
   border: none;
   border-radius: 0;
   box-shadow: none;

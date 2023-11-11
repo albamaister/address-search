@@ -1,9 +1,13 @@
 import Location from ".";
 import { render, screen } from "@testing-library/react";
-describe("acordeon", () => {
-  test("shoulr", () => {
+describe("Location component", () => {
+  test("renders location component with titles and section search", () => {
     render(<Location />);
-    expect(screen.getByText("Where are you located?")).toBeDefined()
-    expect(screen.getByText("So we know where to drop off the stuff")).toBeDefined();
+
+    const titlesElement = screen.getByText('Where are you located?');
+    const sectionSearchElement = screen.getByPlaceholderText('Search for a location');
+
+    expect(titlesElement).toBeDefined();
+    expect(sectionSearchElement).toBeDefined();
   });
 });

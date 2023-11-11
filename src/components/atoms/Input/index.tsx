@@ -10,7 +10,7 @@ const Input:FC<IInput> = ({value, handleInputChange}) => {
     <InputContainer>
       <InputField
         type="text"
-        placeholder="Ingresa aquí"
+        placeholder="Search for a location"
         value={value}
         onChange={handleInputChange}
         id="autocomplete"
